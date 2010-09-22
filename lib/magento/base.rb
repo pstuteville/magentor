@@ -20,7 +20,10 @@ module Magento
       
       def list(*args)
         # TODO: wrap results into an array of objects populated with attributes
-        commit("list", *args)
+        results = commit("list", *args)
+        results.collect do |result|
+          new(result)
+        end
       end
 
       def create(*args)
