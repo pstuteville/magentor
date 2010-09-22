@@ -53,19 +53,23 @@ module Magento
     
     module InstanceMethods
       def update_attribute(name, value)
-        Base::update(self.id, Hash[*[name, value]])
+        self.class.update(self.id, Hash[*[name, value]])
       end
       
       def update_attributes(attrs)
-        Base::update(self.id, attrs)
+        self.class.update(self.id, attrs)
       end
       
       def delete
-        Base::delete(self.id)
+        self.class.delete(self.id)
       end
       
       def initialize(attributes = {})
         @attributes = attributes.dup
+      end
+      
+      def id
+        @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"]
       end
 
       def object_attributes=(new_attributes)

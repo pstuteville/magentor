@@ -15,3 +15,5 @@ require 'magento/customer'
 require 'magento/inventory'
 require 'magento/invoice'
 require 'magento/order'
+
+XMLRPC::Config::ENABLE_NIL_PARSER = true
