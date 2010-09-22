@@ -33,10 +33,12 @@ module Magento
       end
       
       def update(*args)
+        # args = id, data_array
         commit("update", *args)
       end
       
       def delete(*args)
+        # args = id
         commit("delete", *args)
       end
       
@@ -47,6 +49,18 @@ module Magento
     end
     
     module InstanceMethods
+      def update_attribute(name, value)
+        Base::update(self.id, Hash[*[name, value]])
+      end
+      
+      def update_attributes(attrs)
+        Base::update(self.id, attrs)
+      end
+      
+      def delete
+        Base::delete(self.id)
+      end
+      
       def initialize(attributes = {})
         @attributes = attributes.dup
       end
