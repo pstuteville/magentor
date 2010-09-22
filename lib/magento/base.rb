@@ -18,20 +18,13 @@ module Magento
         Magento::Base.connection.call(method, *args)
       end
       
-      def first
-        # return nil unless respond_to?(:list)
-        #         n = 0
-        #         while list(n)[0] == nil
-        #           n+=1
-        #         end
-        #         return list(n)[0]
-      end
-      
       def list(*args)
+        # TODO: wrap results into an array of objects populated with attributes
         commit("list", *args)
       end
 
       def create(*args)
+        # TODO: after create, return a new object with attributes and id populated
         commit("create", *args)
       end
       
