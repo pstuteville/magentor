@@ -13,9 +13,9 @@ module Magento
     end
     
     def call(method = nil, *args)
-      @logger.debug "call: #{method}, #{args.inspect}"
+      @logger.debug "call: #{method}, #{*args.inspect}"
       connect
-      @client.call("call", @session, method, args)
+      @client.call("call", @session, method, *args)
     rescue XMLRPC::FaultException => e
       @logger.debug "exception: #{e.faultCode} -> #{e.faultString}"
     end

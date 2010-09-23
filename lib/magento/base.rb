@@ -59,7 +59,7 @@ module Magento
     module InstanceMethods
       def update_attribute(name, value)
         @attributes[name] = value
-        self.class.update(self.id, Hash[*[name, value]])
+        self.class.update(self.id, Hash[*[name.to_sym, value]])
       end
       
       def update_attributes(attrs)
