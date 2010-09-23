@@ -17,3 +17,4 @@ require 'magento/invoice'
 require 'magento/order'
 
 XMLRPC::Config::ENABLE_NIL_PARSER = true
+XMLRPC::Config::ENABLE_NIL_CREATE = true
