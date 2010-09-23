@@ -18,9 +18,14 @@ module Magento
         Magento::Base.connection.call(method, *args)
       end
       
+      def all
+        list
+      end
+      
       def list(*args)
         # TODO: wrap results into an array of objects populated with attributes
         results = commit("list", *args)
+        Magento::Base.connection.logger.debug "\n#{results.inspect}\n"
         results.collect do |result|
           new(result)
         end
@@ -45,9 +50,10 @@ module Magento
         commit("delete", *args)
       end
       
-      def find(*args)
-        attrs = info(*args)
-        new(attrs)
+      def find(options = {})
+        filters = {}
+        options.each_pair { |k, v| filters[k] = {:eq => v} }
+        list(filters)
       end
     end
     
