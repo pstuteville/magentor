@@ -14,6 +14,7 @@ module Magento
     module ClassMethods
       # Uses the classes name and method to make an rpc call through connection
       def commit(method, *args)
+        # TODO: need to catch errors sent back from magento and bubble them up appropriately
         method = "#{to_s.split('::').last.underscore.downcase}.#{method}"
         Magento::Base.connection.call(method, *args)
       end
@@ -36,6 +37,7 @@ module Magento
       end
       
       def info(*args)
+        # args = id
         commit("info", *args)
       end
       
@@ -47,6 +49,10 @@ module Magento
       def delete(*args)
         # args = id
         commit("delete", *args)
+      end
+      
+      def find_by_id(id)
+        info(id)
       end
       
       def find(find_type, options = {})
