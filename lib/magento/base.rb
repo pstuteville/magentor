@@ -32,8 +32,10 @@ module Magento
       end
 
       def create(attributes)
-        commit("create", attributes)
-        new(attributes)
+        id = commit("create", attributes)
+        record = new(attributes)
+        record.id = id
+        record
       end
       
       def info(*args)
@@ -88,6 +90,10 @@ module Magento
       
       def id
         @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"]
+      end
+      
+      def id=(_id)
+        @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"] = _id
       end
 
       def object_attributes=(new_attributes)
