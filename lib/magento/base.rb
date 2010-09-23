@@ -49,10 +49,15 @@ module Magento
         commit("delete", *args)
       end
       
-      def find(options = {})
+      def find(find_type, options = {})
         filters = {}
         options.each_pair { |k, v| filters[k] = {:eq => v} }
-        list(filters)
+        results = list(filters)
+        if find_type == :first
+          results.first
+        else
+          results
+        end
       end
     end
     
