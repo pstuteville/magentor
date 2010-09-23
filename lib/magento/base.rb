@@ -23,7 +23,6 @@ module Magento
       end
       
       def list(*args)
-        # TODO: wrap results into an array of objects populated with attributes
         results = commit("list", *args)
         Magento::Base.connection.logger.debug "\n#{results.inspect}\n"
         results.collect do |result|
@@ -31,9 +30,9 @@ module Magento
         end
       end
 
-      def create(*args)
-        # TODO: after create, return a new object with attributes and id populated
-        commit("create", *args)
+      def create(attributes)
+        commit("create", attributes)
+        new(attributes)
       end
       
       def info(*args)
@@ -59,10 +58,12 @@ module Magento
     
     module InstanceMethods
       def update_attribute(name, value)
+        @attributes[name] = value
         self.class.update(self.id, Hash[*[name, value]])
       end
       
       def update_attributes(attrs)
+        attrs.each_pair { |k, v| @attributes[k] = v }
         self.class.update(self.id, attrs)
       end
       
