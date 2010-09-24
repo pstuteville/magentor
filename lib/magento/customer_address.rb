@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/customer_address
   # 100  Invalid address data. Details in error message.
   # 101  Customer not exists.

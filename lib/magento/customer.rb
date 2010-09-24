@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/customer
   # 100  Invalid customer data. Details in error message.
   # 101  Invalid filters specified. Details in error message.

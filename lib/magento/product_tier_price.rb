@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_product_type
   # 100  Product not exists.
   # 101  Invalid data given. Details in error message.

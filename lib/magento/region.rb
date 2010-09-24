@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/directory_region
   class Region < Base
     class << self

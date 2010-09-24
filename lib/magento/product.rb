@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_product
   # 100  Requested store view not found.
   # 101  Product not exists.

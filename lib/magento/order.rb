@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   class Order < Base
     # http://www.magentocommerce.com/wiki/doc/webservices-api/api/sales_order
     # 100  Requested order not exists.

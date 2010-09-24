@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   class Inventory < Base
   end
 end

@@ -6,7 +6,7 @@
 # And the following instance attributes:
 # * <tt>attributes</tt>: the attributes of the magento object
 #
-module Magentor
+module Magento
   class Base
     attr_accessor :attributes
     class << self; attr_accessor :connection end

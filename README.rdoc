@@ -7,7 +7,7 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
 = Usage
 Setup your connection to magento
 
-  Magentor::Base.connection = Magento::Connection.new({
+  Magento::Base.connection = Magento::Connection.new({
     :username => 'username', 
     :api_key => 'api_key', 
     :host => 'magento.example.org', 
@@ -17,9 +17,9 @@ Setup your connection to magento
 
 Then get down to business
 
-  Magentor::Customer.list
-  Magentor::Product.info(1).sku
-  customer = Magentor::Customer.find(:first, {:email => 'example@magentor.ccc'})
+  Magento::Customer.list
+  Magento::Product.info(1).sku
+  customer = Magento::Customer.find(:first, {:email => 'example@magentor.ccc'})
   customer.update_attributes({:firstname => 'duke', :lastname => 'magentor'})
   customer.delete
 

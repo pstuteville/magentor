@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_category
   # 100  Requested store view not found.
   # 101  Requested website not found.

@@ -1,4 +1,4 @@
-module Magentor
+module Magento
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_product_link
   # 100  Given invalid link type.
   # 101  Product not exists.
