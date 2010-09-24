@@ -25,6 +25,7 @@ module Magento
         @attributes = attributes.dup
       end
       
+      # TODO: find out if the id naming is consistent
       def id
         @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"]
       end
