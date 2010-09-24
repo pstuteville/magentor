@@ -1,4 +1,4 @@
-module Magento
+module Magentor
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_product_attribute
   # 100  Requested store view not found.
   # 101  Requested attribute not found.

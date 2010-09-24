@@ -1,1 +1,1 @@
-require 'magento'
+require 'magentor'

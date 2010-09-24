@@ -1,4 +1,4 @@
-module Magento
+module Magentor
   class Connection 
     attr_accessor :client, :config, :logger
     def initialize(config = {})

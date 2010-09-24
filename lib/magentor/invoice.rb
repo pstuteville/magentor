@@ -1,4 +1,4 @@
-module Magento
+module Magentor
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/sales_order_invoice
   # 100  Requested shipment does not exists.
   # 101  Invalid filters given. Details in error message.

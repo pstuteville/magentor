@@ -1,4 +1,4 @@
-module Magento
+module Magentor
   # http://www.magentocommerce.com/wiki/doc/webservices-api/api/cataloginventory_stock_item
   # 101  Product not exists.
   # 102  Product inventory not updated. Details in error message.

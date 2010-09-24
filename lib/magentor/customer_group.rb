@@ -1,9 +1,9 @@
-module Magento
-  # http://www.magentocommerce.com/wiki/doc/webservices-api/api/catalog_product_type
-  class ProductType < Base
+module Magentor
+  # http://www.magentocommerce.com/wiki/doc/webservices-api/api/customer_group
+  class CustomerGroup < Base
     class << self
-      # catalog_product_type.list
-      # Retrieve product types
+      # customer_group.list
+      # Retrieve customer groups
       # 
       # Return: array
       def list

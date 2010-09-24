@@ -5,12 +5,12 @@
 #
 # Inspiration from the Magento plugin from Tim Matheson (http://github.com/timmatheson/Magento) 
        
-require 'magento/connection'
+require 'magentor/connection'
 
 #require 'xmlrpc'
 require 'xmlrpc/client'
 
-require 'magento/base'
+require 'magentor/base'
 
 XMLRPC::Config::ENABLE_NIL_PARSER = true
 XMLRPC::Config::ENABLE_NIL_CREATE = true
