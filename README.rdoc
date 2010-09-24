@@ -7,7 +7,13 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
 = Usage
 Setup your connection to magento with the following call:
 
-  Magento::Base.connection = Magento::Connection.new({:username => 'username', :api_key => 'api_key', :host => 'magento.example.org', :path => '/magento/api/xmlrpc', :port => '80'})
+  Magento::Base.connection = Magento::Connection.new({
+    :username => 'username', 
+    :api_key => 'api_key', 
+    :host => 'magento.example.org', 
+    :path => '/magento/api/xmlrpc', 
+    :port => '80'
+  })
 
   Magento::Customer.list
   Magento::Product.info(1).sku
