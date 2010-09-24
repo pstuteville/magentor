@@ -18,72 +18,9 @@ module Magento
         method = "#{to_s.split('::').last.underscore.downcase}.#{method}"
         Magento::Base.connection.call(method, *args)
       end
-      
-      def all
-        list
-      end
-      
-      def list(*args)
-        results = commit("list", *args)
-        Magento::Base.connection.logger.debug "\n#{results.inspect}\n"
-        results.collect do |result|
-          new(result)
-        end
-      end
-
-      def create(attributes)
-        id = commit("create", attributes)
-        record = new(attributes)
-        record.id = id
-        record
-      end
-      
-      def info(*args)
-        # args = id
-        commit("info", *args)
-      end
-      
-      def update(*args)
-        # args = id, data_array
-        commit("update", *args)
-      end
-      
-      def delete(*args)
-        # args = id
-        commit("delete", *args)
-      end
-      
-      def find_by_id(id)
-        info(id)
-      end
-      
-      def find(find_type, options = {})
-        filters = {}
-        options.each_pair { |k, v| filters[k] = {:eq => v} }
-        results = list(filters)
-        if find_type == :first
-          results.first
-        else
-          results
-        end
-      end
     end
     
     module InstanceMethods
-      def update_attribute(name, value)
-        @attributes[name] = value
-        self.class.update(self.id, Hash[*[name.to_sym, value]])
-      end
-      
-      def update_attributes(attrs)
-        attrs.each_pair { |k, v| @attributes[k] = v }
-        self.class.update(self.id, attrs)
-      end
-      
-      def delete
-        self.class.delete(self.id)
-      end
-      
       def initialize(attributes = {})
         @attributes = attributes.dup
       end
