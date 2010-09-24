@@ -1,15 +1,21 @@
-== Magento ===================
+== Magento
 Simple wrapper for the Magento XMLRPC api
 
 Magento api documentation: http://www.magentocommerce.com/support/magento_core_api
 
 
-== Usage =====================
+== Usage
 Setup your connection to magento with the following call:
 
 Magento::Base.connection = Magento::Connection.new({:username => 'username', :api_key => 'api_key', :host => 'magento.example.org', :path => '/magento/api/xmlrpc', :port => '80'})
 
-== License =====================
+Magento::Customer.list
+Magento::Product.info(1).sku
+customer = Magento::Customer.find(:first, {:email => 'example@magentor.ccc'})
+customer.update_attributes({:firstname => 'duke', :lastname => 'magentor'})
+customer.delete
+
+== License
 Copyright (c) 2010 Preston Stuteville and contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
