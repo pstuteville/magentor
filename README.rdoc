@@ -5,7 +5,6 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
 
 
 = Usage
-Setup your connection to magento with the following call:
 
   Magento::Base.connection = Magento::Connection.new({
     :username => 'username', 
