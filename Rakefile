@@ -7,10 +7,10 @@ rescue LoadError
 end
 
 Jeweler::Tasks.new do |s|
-  s.name     = "rmagento"
+  s.name     = "magentor"
   s.summary  = "Ruby wrapper for the Magento xmlrpc api"
   s.email    = "preston.stuteville@gmail.com"
-  s.homepage = "http://github.com/pstuteville/rmagento"
+  s.homepage = "http://github.com/pstuteville/magentor"
   s.authors  = ["Preston Stuteville"]
   
   s.has_rdoc = true
