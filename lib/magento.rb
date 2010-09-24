@@ -11,10 +11,6 @@ require 'magento/connection'
 require 'xmlrpc/client'
 
 require 'magento/base'
-require 'magento/customer'
-require 'magento/inventory'
-require 'magento/invoice'
-require 'magento/order'
 
 XMLRPC::Config::ENABLE_NIL_PARSER = true
 XMLRPC::Config::ENABLE_NIL_CREATE = true
