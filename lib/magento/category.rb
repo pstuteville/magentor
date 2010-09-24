@@ -195,5 +195,21 @@ module Magento
       attrs.each_pair { |k, v| @attributes[k] = v }
       self.class.update(self.id, attrs)
     end
+    
+    def assigned_products(*args)
+      self.class.assigned_products(self.id, *args)
+    end
+
+    def assign_product(*args)
+      self.class.assign_product(self.id, *args)
+    end
+
+    def update_product(*args)
+      self.class.update_product(self.id, *args)
+    end
+
+    def remove_product(*args)
+      self.class.remove_product(self.id, *args)
+    end
   end
 end
