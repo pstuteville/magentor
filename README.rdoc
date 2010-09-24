@@ -5,6 +5,7 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
 
 
 = Usage
+Setup your connection to magento
 
   Magento::Base.connection = Magento::Connection.new({
     :username => 'username', 
@@ -14,6 +15,8 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
     :port => '80'
   })
 
+Then get down to business
+
   Magento::Customer.list
   Magento::Product.info(1).sku
   customer = Magento::Customer.find(:first, {:email => 'example@magentor.ccc'})
@@ -21,7 +24,7 @@ Magento api documentation: http://www.magentocommerce.com/support/magento_core_a
   customer.delete
 
 = License
-Copyright (c) 2010 Preston Stuteville and contributors
+Copyright (c) 2010 Preston Stuteville
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
