@@ -1,4 +1,4 @@
 module Magento
-  class Product
+  class Product < Base
   end
 end

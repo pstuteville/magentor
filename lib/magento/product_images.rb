@@ -1,4 +1,4 @@
 module Magento
-  class ProductImages
+  class ProductImages < Base
   end
 end 

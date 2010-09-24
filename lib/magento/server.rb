@@ -1,4 +1,4 @@
 module Magento
-  class Server
+  class Server < Base
   end
 end
