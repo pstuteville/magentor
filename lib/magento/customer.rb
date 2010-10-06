@@ -102,7 +102,10 @@ module Magento
       def all
         list
       end
-      
+    end
+    
+    def addresses
+      Magento::CustomerAddress.list(self.id)
     end
     
     def delete

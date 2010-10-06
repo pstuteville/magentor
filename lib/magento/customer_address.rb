@@ -83,6 +83,14 @@ module Magento
         end
         
     end
+    
+    def country
+      Magento::Country.find_by_id(self.country)
+    end
+    
+    def region
+      Magento::Region.find_by_country_and_id(self.country.iso2, self.region)
+    end
 
     def delete
       self.class.delete(self.id)

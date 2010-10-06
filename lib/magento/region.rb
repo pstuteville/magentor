@@ -20,6 +20,14 @@ module Magento
       def find_by_country(iso)
         list(iso)
       end
+      
+      def find_by_country_and_id(iso, id)
+        list(iso).select{ |r| r.id == id }.first
+      end
+      
+      def find_by_country_iso_and_iso(country_iso, iso)
+        list(iso).select{ |r| [r.iso2, r.iso3].include? iso }.first
+      end
     end
   end
 end
