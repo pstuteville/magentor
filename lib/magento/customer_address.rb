@@ -30,8 +30,8 @@ module Magento
         # 
         # int customerId - customer ID
         # array addressData - adress data (country, zip, city, etc...)
-        def create(attributes)
-          id = commit("create", attributes)
+        def create(customer_id, attributes)
+          id = commit("create", customer_id, attributes)
           record = new(attributes)
           record.id = id
           record
