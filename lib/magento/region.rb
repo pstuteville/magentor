@@ -26,7 +26,7 @@ module Magento
       end
       
       def find_by_country_iso_and_iso(country_iso, iso)
-        list(country_iso).select{ |r| [r.iso2, r.iso3].include? iso }.first
+        list(country_iso).select{ |r| r.code == iso }.first
       end
     end
   end
