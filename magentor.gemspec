@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{magentor}
-  s.version = "0.1.7"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Preston Stuteville"]
-  s.date = %q{2010-10-06}
+  s.date = %q{2010-11-04}
   s.email = %q{preston.stuteville@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "lib/magento/inventory.rb",
      "lib/magento/invoice.rb",
      "lib/magento/order.rb",
+     "lib/magento/order_item.rb",
      "lib/magento/product.rb",
      "lib/magento/product_attribute.rb",
      "lib/magento/product_attribute_set.rb",
