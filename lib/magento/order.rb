@@ -84,6 +84,12 @@ module Magento
         commit('cancel', *args)
       end
       
+      def order_items
+        self.items.collect do |item|
+          OrderItem.new(item)
+        end
+      end
+      
       def find_by_id(id)
         info(id)
       end
