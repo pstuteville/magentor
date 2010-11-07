@@ -84,13 +84,11 @@ module Magento
         commit('cancel', *args)
       end
       
-      def order_items
-        self.items.collect do |item|
-          OrderItem.new(item)
-        end
+      def find_by_id(id)
+        info(list.select { |o| o.id == id }.first.increment_id)
       end
       
-      def find_by_id(id)
+      def find_by_increment_id(id)
         info(id)
       end
 
@@ -103,6 +101,12 @@ module Magento
         else
           results
         end
+      end
+    end
+    
+    def order_items
+      self.items.collect do |item|
+        OrderItem.new(item)
       end
     end
   end
