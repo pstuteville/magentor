@@ -85,7 +85,7 @@ module Magento
       end
       
       def find_by_id(id)
-        info(list.select { |o| o.id == id }.first.increment_id)
+        find(:first, {:order_id => id})
       end
       
       def find_by_increment_id(id)
@@ -97,9 +97,11 @@ module Magento
         options.each_pair { |k, v| filters[k] = {:eq => v} }
         results = list(filters)
         if find_type == :first
-          results.first
+          info(results.first.increment_id)
         else
-          results
+          results.collect do |o|
+            info(o.increment_id)
+          end
         end
       end
     end
