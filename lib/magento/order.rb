@@ -111,5 +111,13 @@ module Magento
         OrderItem.new(item)
       end
     end
+    
+    def shipping_address
+      CustomerAddress.new(@attributes[:shipping_address])
+    end
+    
+    def billing_address
+      CustomerAddress.new(@attributes[:billing_address])
+    end
   end
 end
