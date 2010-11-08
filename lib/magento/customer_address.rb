@@ -105,5 +105,13 @@ module Magento
       attrs.each_pair { |k, v| @attributes[k] = v }
       self.class.update(self.id, attrs)
     end
+    
+    def id
+      @attributes["address_id"]
+    end
+    
+    def id=(_id)
+      @attributes["address_id"] = _id
+    end
   end
 end
