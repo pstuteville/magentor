@@ -84,11 +84,11 @@ module Magento
         
     end
     
-    def country
+    def country_obj
       Magento::Country.find_by_id(self.country)
     end
     
-    def region
+    def region_obj
       Magento::Region.find_by_country_and_id(self.country.iso2, self.region)
     end
 
