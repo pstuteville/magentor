@@ -3,7 +3,7 @@ module Magento
     class << self      
       def find_by_id(id)
         Order.list.each do |order|
-          Order.info(order.id).order_items.select{ |i| i.id == id }
+          Order.find_by_increment_id(order.increment_id).order_items.select{ |i| i.id == id }
         end
       end
       
