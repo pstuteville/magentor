@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    "MIT-LICENSE",
+    ".gitignore",
+     "MIT-LICENSE",
      "README.rdoc",
      "Rakefile",
      "TODOS",
@@ -44,8 +45,7 @@ Gem::Specification.new do |s|
      "lib/magento/region.rb",
      "lib/magento/shipment.rb",
      "lib/magentor.rb",
-     "magentor.gemspec",
-     "pkg/magentor-0.1.10.gem"
+     "magentor.gemspec"
   ]
   s.homepage = %q{http://github.com/pstuteville/magentor}
   s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
