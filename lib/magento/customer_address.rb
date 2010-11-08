@@ -84,12 +84,12 @@ module Magento
         
     end
     
-    def country_obj
-      Magento::Country.find_by_id(self.country)
+    def country
+      Magento::Country.find_by_id(self.country_id)
     end
     
-    def region_obj
-      Magento::Region.find_by_country_and_id(self.country.iso2, self.region)
+    def region
+      Magento::Region.find_by_country_and_id(self.country_id, self.region_id)
     end
 
     def delete
