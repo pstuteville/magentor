@@ -108,16 +108,16 @@ module Magento
     
     def order_items
       self.items.collect do |item|
-        OrderItem.new(item)
+        Magento::OrderItem.new(item)
       end
     end
     
     def shipping_address
-      CustomerAddress.new(@attributes["shipping_address"])
+      Magento::CustomerAddress.new(@attributes["shipping_address"])
     end
     
     def billing_address
-      CustomerAddress.new(@attributes["billing_address"])
+      Magento::CustomerAddress.new(@attributes["billing_address"])
     end
   end
 end
