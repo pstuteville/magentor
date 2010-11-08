@@ -18,7 +18,7 @@ module Magento
     end
     
     def order
-      Order.info(self.order_id)
+      Order.find_by_id(self.order_id)
     end
     
     def product
