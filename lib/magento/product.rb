@@ -122,6 +122,10 @@ module Magento
       end
       
       def find_by_id_or_sku(id)
+        find_by_id(id)
+      end
+      
+      def find_by_id(id)
         info(id)
       end
 
