@@ -18,7 +18,7 @@ module Magento
       @client.call("call", @session, method, args)
     rescue XMLRPC::FaultException => e
       @logger.debug "exception: #{e.faultCode} -> #{e.faultString}"
-      raise ApiError, "#{e.faultCode} -> #{e.faultString}"
+      raise Magento::ApiError, "#{e.faultCode} -> #{e.faultString}"
     end
   end
 end
