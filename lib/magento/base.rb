@@ -52,4 +52,6 @@ module Magento
     include InstanceMethods
     extend ClassMethods
   end
+
+  class ApiError < StandardError; end
 end
