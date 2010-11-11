@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{magentor}
-  s.version = "0.2.16"
+  s.version = "0.2.17"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Preston Stuteville"]
-  s.date = %q{2010-11-10}
+  s.date = %q{2010-11-11}
   s.email = %q{preston.stuteville@gmail.com}
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -45,6 +45,7 @@ Gem::Specification.new do |s|
      "lib/magento/region.rb",
      "lib/magento/shipment.rb",
      "lib/magentor.rb",
+     "magentor-0.2.15.gem",
      "magentor.gemspec"
   ]
   s.homepage = %q{http://github.com/pstuteville/magentor}
