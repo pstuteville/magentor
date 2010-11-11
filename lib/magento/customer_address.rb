@@ -107,11 +107,12 @@ module Magento
     end
     
     def id
-      @attributes["address_id"]
+      @attributes["address_id"] || super
     end
     
     def id=(_id)
       @attributes["address_id"] = _id
+      super
     end
   end
 end
