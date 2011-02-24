@@ -15,8 +15,12 @@ module Magento
       # Uses the classes name and method to make an rpc call through connection
       def commit(method, *args)
         # TODO: need to catch errors sent back from magento and bubble them up appropriately
-        method = "#{to_s.split('::').last.underscore.downcase}.#{method}"
+        method = "#{api_path}.#{method}"
         Magento::Base.connection.call(method, *args)
+      end
+      
+      def api_path
+        to_s.split('::').last.underscore.downcase
       end
     end
     

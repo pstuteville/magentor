@@ -122,6 +122,10 @@ module Magento
           results
         end
       end
+      
+      def api_path
+        "order_shipment"
+      end
     end
   end
 end
