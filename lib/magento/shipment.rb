@@ -116,11 +116,17 @@ module Magento
         filters = {}
         options.each_pair { |k, v| filters[k] = {:eq => v} }
         results = list(filters)
+        
+        raise Magento::ApiError, "100  Requested shipment not exists." if results.blank?
+        
         if find_type == :first
-          results.first
+          info(results.first.increment_id)
         else
-          results
+          results.collect do |s|
+            info(s.increment_id)
+          end
         end
+        
       end
       
       def api_path
