@@ -9,8 +9,10 @@ require "active_support/inflector"
 require "logger"
 require 'xmlrpc/client'
 
-XMLRPC::Config::ENABLE_NIL_PARSER = true
-XMLRPC::Config::ENABLE_NIL_CREATE = true
+XMLRPC::Config.send(:remove_const, :ENABLE_NIL_PARSER)
+XMLRPC::Config.send(:const_set, :ENABLE_NIL_PARSER, true)
+XMLRPC::Config.send(:remove_const, :ENABLE_NIL_CREATE)
+XMLRPC::Config.send(:const_set, :ENABLE_NIL_CREATE, true)
 
 require 'magento/connection'
 require 'magento/base'
