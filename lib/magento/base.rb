@@ -47,9 +47,20 @@ module Magento
         end
       end
 
-      def method_missing(method, *args)
-        return nil unless @attributes
-        @attributes[method.to_s]
+      def method_missing(method_symbol, *arguments)
+        method_name = method_symbol.to_s
+
+        if method_name =~ /(=|\?)$/
+          case $1
+          when "="
+            @attributes[$`] = arguments.first
+          when "?"
+            @attributes[$`]
+          end
+        else
+          return @attributes[method_name] if @attributes.include?(method_name)
+          super
+        end
       end
     end
     
