@@ -38,9 +38,7 @@ module Magento
       #   Example: array(’file’ ⇒ array(’content’ ⇒ base64_encode($file), ‘mime’ ⇒ ‘type/jpeg’)
       #   mixed storeView - store view ID or code (optional)
       def create(*args)
-        id = commit("create", *args)
-        record = info(id)
-        record
+        commit("create", *args)
       end
 
       # catalog_product_attribute_media.info
