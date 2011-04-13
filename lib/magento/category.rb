@@ -20,10 +20,7 @@ module Magento
       # array $categoryData - category data ( array(’attribute_code’⇒‘attribute_value’ )
       # mixed $storeView - store view ID or code (optional)
       def create(*args)
-        id = commit("create", *args)
-        record = new(attributes)
-        record.id = id
-        record
+        commit("create", *args)
       end
 
       # catalog_category.info
