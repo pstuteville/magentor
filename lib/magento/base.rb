@@ -16,7 +16,11 @@ module Magento
       def commit(method, *args)
         # TODO: need to catch errors sent back from magento and bubble them up appropriately
         method = "#{api_path}.#{method}"
-        Magento::Base.connection.call(method, *args)
+        begin
+          return Magento::Base.connection.call(method, *args)
+        rescue Exception => e
+          return e
+        end
       end
       
       def api_path
