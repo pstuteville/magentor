@@ -24,7 +24,9 @@ module Magento
 
       def connect!
         logger.debug "call: login"
-        @session = client.call("login", config[:username], config[:api_key])
+        retry_on_connection_error do
+          @session = client.call("login", config[:username], config[:api_key])
+        end
       end
 
       def cache?
@@ -34,7 +36,9 @@ module Magento
       def call_without_caching(method = nil, *args)
         logger.debug "call: #{method}, #{args.inspect}"
         connect
-        client.call("call", session, method, args)
+        retry_on_connection_error do
+          client.call("call", session, method, args)
+        end
       rescue XMLRPC::FaultException => e
         logger.debug "exception: #{e.faultCode} -> #{e.faultString}"
         if e.faultCode == 5 # Session timeout
@@ -52,6 +56,16 @@ module Magento
 
       def cache_key(method, *args)
         "#{config[:username]}@#{config[:host]}:#{config[:port]}#{config[:path]}/#{method}/#{args.inspect}"
+      end
+
+      def retry_on_connection_error
+        attempts = 0
+        begin
+          yield
+        rescue EOFError
+          attempts += 1
+          retry if attempts < 2
+        end
       end
   end
 end
