@@ -1,3 +1,5 @@
+require 'logger'
+
 module Magento
   class Connection 
     attr_accessor :session, :config, :logger
