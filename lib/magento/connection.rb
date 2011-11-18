@@ -37,7 +37,7 @@ module Magento
         logger.debug "call: #{method}, #{args.inspect}"
         connect
         retry_on_connection_error do
-          client.call("call", session, method, args)
+          client.call_async("call", session, method, args)
         end
       rescue XMLRPC::FaultException => e
         logger.debug "exception: #{e.faultCode} -> #{e.faultString}"
