@@ -1,1 +1,2 @@
 require 'magentor'
+require 'logger'
