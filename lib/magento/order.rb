@@ -110,7 +110,7 @@ module Magento
     end
 
     def order_items
-      if (!self.respond_to? :items)
+      if (!self.attributes.has_key? 'items')
         self.attributes.merge! Magento::Order.info(self.increment_id).attributes
       end
 
@@ -120,7 +120,7 @@ module Magento
     end
 
     def payment_info
-      if (!self.respond_to? :payment)
+      if (!self.attributes.has_key? 'payment')
         self.attributes.merge! Magento::Order.info(self.increment_id).attributes
       end
 
