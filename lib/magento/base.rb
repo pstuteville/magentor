@@ -44,12 +44,12 @@ module Magento
 
       # return created_at attribute in user's local timezone
       def created_at
-        Time.parse @attributes['created_at'] + ' GMT'
+        DateTime.parse(@attributes['created_at']).to_time.localtime
       end
 
       # return updated_at attribute in user's local timezone
       def updated_at
-        Time.parse @attributes['updated_at'] + ' GMT'
+        DateTime.parse(@attributes['updated_at']).to_time.localtime
       end
 
       def object_attributes=(new_attributes)
