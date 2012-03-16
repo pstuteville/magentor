@@ -2,7 +2,7 @@
 # It has the following class attributes:
 #
 # * <tt>connection</tt>: the Magento::Connection to use
-# 
+#
 # And the following instance attributes:
 # * <tt>attributes</tt>: the attributes of the magento object
 #
@@ -10,7 +10,7 @@ module Magento
   class Base
     attr_accessor :attributes
     class << self; attr_accessor :connection end
-    
+
     module ClassMethods
       # Uses the classes name and method to make an rpc call through connection
       def commit(method, *args)
@@ -22,24 +22,34 @@ module Magento
           return e
         end
       end
-      
+
       def api_path
         to_s.split('::').last.underscore.downcase
       end
     end
-    
+
     module InstanceMethods
       def initialize(attributes = {})
         @attributes = attributes.dup
       end
-      
+
       # TODO: find out if the id naming is consistent
       def id
         @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"]
       end
-      
+
       def id=(_id)
         @attributes["#{self.class.to_s.split('::').last.underscore.downcase}_id"] = _id
+      end
+
+      # return created_at attribute in user's local timezone
+      def created_at
+        Time.parse @attributes['created_at'] + ' GMT'
+      end
+
+      # return updated_at attribute in user's local timezone
+      def updated_at
+        Time.parse @attributes['updated_at'] + ' GMT'
       end
 
       def object_attributes=(new_attributes)
@@ -67,7 +77,7 @@ module Magento
         end
       end
     end
-    
+
     include InstanceMethods
     extend ClassMethods
   end
