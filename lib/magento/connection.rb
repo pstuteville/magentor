@@ -1,5 +1,5 @@
 module Magento
-  class Connection 
+  class Connection
     attr_accessor :session, :config, :logger
 
     def initialize(config = {})
@@ -45,7 +45,7 @@ module Magento
           connect!
           retry
         end
-        raise Magento::ApiError, "#{e.faultCode} -> #{e.faultString}"
+        raise Magento::ApiError.new e.faultCode, e.faultString
       end
 
       def call_with_caching(method = nil, *args)

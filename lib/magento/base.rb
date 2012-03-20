@@ -14,13 +14,8 @@ module Magento
     module ClassMethods
       # Uses the classes name and method to make an rpc call through connection
       def commit(method, *args)
-        # TODO: need to catch errors sent back from magento and bubble them up appropriately
         method = "#{api_path}.#{method}"
-        begin
-          return Magento::Base.connection.call(method, *args)
-        rescue Exception => e
-          return e
-        end
+        return Magento::Base.connection.call(method, *args)
       end
 
       def api_path
@@ -82,5 +77,5 @@ module Magento
     extend ClassMethods
   end
 
-  class ApiError < StandardError; end
+  class ApiError < XMLRPC::FaultException; end
 end
