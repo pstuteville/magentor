@@ -23,6 +23,35 @@ Then get down to business
   customer.update_attributes({:firstname => 'duke', :lastname => 'magentor'})
   customer.delete
 
+All classes currently available (cart classes newly added 6/11/2012)
+
+  Magento::Cart
+  Magento::CartProduct
+  Magento::CartCustomer
+  Magento::CartShipping
+  Magento::CartPayment
+  Magento::CartCoupon
+  Magento::CategoryAttribute
+  Magento::Category
+  Magento::Country
+  Magento::CustomerAddress
+  Magento::CustomerGroup
+  Magento::Customer
+  Magento::Inventory
+  Magento::Invoice
+  Magento::OrderItem
+  Magento::Order
+  Magento::ProductAttribute
+  Magento::ProductAttributeSet
+  Magento::ProductLink
+  Magento::ProductMedia
+  Magento::Product
+  Magento::ProductStock
+  Magento::ProductTierPrice
+  Magento::ProductType
+  Magento::Region
+  Magento::Shipment
+
 = License
 Copyright (c) 2010 Preston Stuteville
 
