@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{magentor}
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Preston Stuteville"]
@@ -22,28 +22,28 @@ Gem::Specification.new do |s|
      "TODOS",
      "VERSION",
      "init.rb",
-     "lib/magento/base.rb",
-     "lib/magento/category.rb",
-     "lib/magento/category_attribute.rb",
-     "lib/magento/connection.rb",
-     "lib/magento/country.rb",
-     "lib/magento/customer.rb",
-     "lib/magento/customer_address.rb",
-     "lib/magento/customer_group.rb",
-     "lib/magento/inventory.rb",
-     "lib/magento/invoice.rb",
-     "lib/magento/order.rb",
-     "lib/magento/order_item.rb",
-     "lib/magento/product.rb",
-     "lib/magento/product_attribute.rb",
-     "lib/magento/product_attribute_set.rb",
-     "lib/magento/product_link.rb",
-     "lib/magento/product_media.rb",
-     "lib/magento/product_stock.rb",
-     "lib/magento/product_tier_price.rb",
-     "lib/magento/product_type.rb",
-     "lib/magento/region.rb",
-     "lib/magento/shipment.rb",
+     "lib/magentor/base.rb",
+     "lib/magentor/category.rb",
+     "lib/magentor/category_attribute.rb",
+     "lib/magentor/connection.rb",
+     "lib/magentor/country.rb",
+     "lib/magentor/customer.rb",
+     "lib/magentor/customer_address.rb",
+     "lib/magentor/customer_group.rb",
+     "lib/magentor/inventory.rb",
+     "lib/magentor/invoice.rb",
+     "lib/magentor/order.rb",
+     "lib/magentor/order_item.rb",
+     "lib/magentor/product.rb",
+     "lib/magentor/product_attribute.rb",
+     "lib/magentor/product_attribute_set.rb",
+     "lib/magentor/product_link.rb",
+     "lib/magentor/product_media.rb",
+     "lib/magentor/product_stock.rb",
+     "lib/magentor/product_tier_price.rb",
+     "lib/magentor/product_type.rb",
+     "lib/magentor/region.rb",
+     "lib/magentor/shipment.rb",
      "lib/magentor.rb",
      "magentor.gemspec"
   ]
