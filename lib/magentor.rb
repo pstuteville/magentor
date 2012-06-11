@@ -18,6 +18,12 @@ require 'magentor/connection'
 require 'magentor/base'
 
 module Magento
+  autoload :Cart,                "magentor/cart"
+  autoload :CartProduct,         "magentor/cart_product"
+  autoload :CartCustomer,        "magentor/cart_customer"
+  autoload :CartShipping,        "magentor/cart_shipping"
+  autoload :CartPayment,         "magentor/cart_payment"
+  autoload :CartCoupon,          "magentor/cart_coupon"
   autoload :CategoryAttribute,   "magentor/category_attribute"
   autoload :Category,            "magentor/category"
   autoload :Country,             "magentor/country"
