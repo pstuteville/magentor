@@ -98,5 +98,58 @@ module Magento
     def license_agreement
       self.class.license_agreement(self.quote_id, self.store_id)
     end
+    
+    ###### Extra features ######
+    
+    def add_product(product)
+      add_products [product]
+    end
+    
+    def add_products(products)
+      # convert CartProduct classes to hashes
+      products = products.collect do |product|
+        product.attributes rescue product
+      end
+      self if CartProduct.add(self.quote_id, products, self.store_id)
+    end
+    
+    def customer=(value)
+      # convert CartCustomer class to hash
+      attrs = value.attributes rescue value
+      mode = (attrs["customer_id"] || attrs[:customer_id]) ? "customer" : "guest"
+      refresh if CartCustomer.set(self.quote_id, attrs.merge(:mode => mode), self.store_id)
+    end
+    
+    def customer
+      Customer.info(self.customer_id) if self.customer_id
+    end
+    
+    def save_addresses(shipping_address, billing_address)
+      shipping_address ||= {}
+      billing_address ||= {}
+      refresh if CartCustomer.addresses(self.quote_id, [shipping_address.merge(:mode => :shipping), billing_address.merge(:mode => :billing)], self.store_id)
+    end
+    
+    # shipping_method can't be set until the shipping address has been saved
+    def shipping_method=(value)
+      refresh if CartShipping.method(self.quote_id, value, self.store_id)
+    end
+    
+    def shipping_method
+      shipping_address["shipping_method"]
+    end
+    
+    def payment_method=(method, attributes = {})
+      refresh if CartPayment.method(self.quote_id, attributes.merge(:method => method), self.store_id)
+    end
+    
+    def payment_method
+      payment["method"]
+    end
+    
+    def refresh
+      @attributes = self.class.info(self.quote_id, self.store_id).attributes
+    end
+    
   end
 end
