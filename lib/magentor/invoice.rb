@@ -127,6 +127,10 @@ module Magento
           results
         end
       end
+
+      def api_path
+        "order_invoice"
+      end
     end
   end
 end

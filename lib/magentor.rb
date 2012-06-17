@@ -14,28 +14,34 @@ XMLRPC::Config.send(:const_set, :ENABLE_NIL_PARSER, true)
 XMLRPC::Config.send(:remove_const, :ENABLE_NIL_CREATE)
 XMLRPC::Config.send(:const_set, :ENABLE_NIL_CREATE, true)
 
-require 'magento/connection'
-require 'magento/base'
+require 'magentor/connection'
+require 'magentor/base'
 
 module Magento
-  autoload :CategoryAttribute,   "magento/category_attribute"
-  autoload :Category,            "magento/category"
-  autoload :Country,             "magento/country"
-  autoload :CustomerAddress,     "magento/customer_address"
-  autoload :CustomerGroup,       "magento/customer_group"
-  autoload :Customer,            "magento/customer"
-  autoload :Inventory,           "magento/inventory"
-  autoload :Invoice,             "magento/invoice"
-  autoload :OrderItem,           "magento/order_item"
-  autoload :Order,               "magento/order"
-  autoload :ProductAttribute,    "magento/product_attribute"
-  autoload :ProductAttributeSet, "magento/product_attribute_set"
-  autoload :ProductLink,         "magento/product_link"
-  autoload :ProductMedia,        "magento/product_media"
-  autoload :Product,             "magento/product"
-  autoload :ProductStock,        "magento/product_stock"
-  autoload :ProductTierPrice,    "magento/product_tier_price"
-  autoload :ProductType,         "magento/product_type"
-  autoload :Region,              "magento/region"
-  autoload :Shipment,            "magento/shipment"
+  autoload :Cart,                "magentor/cart"
+  autoload :CartProduct,         "magentor/cart_product"
+  autoload :CartCustomer,        "magentor/cart_customer"
+  autoload :CartShipping,        "magentor/cart_shipping"
+  autoload :CartPayment,         "magentor/cart_payment"
+  autoload :CartCoupon,          "magentor/cart_coupon"
+  autoload :CategoryAttribute,   "magentor/category_attribute"
+  autoload :Category,            "magentor/category"
+  autoload :Country,             "magentor/country"
+  autoload :CustomerAddress,     "magentor/customer_address"
+  autoload :CustomerGroup,       "magentor/customer_group"
+  autoload :Customer,            "magentor/customer"
+  autoload :Inventory,           "magentor/inventory"
+  autoload :Invoice,             "magentor/invoice"
+  autoload :OrderItem,           "magentor/order_item"
+  autoload :Order,               "magentor/order"
+  autoload :ProductAttribute,    "magentor/product_attribute"
+  autoload :ProductAttributeSet, "magentor/product_attribute_set"
+  autoload :ProductLink,         "magentor/product_link"
+  autoload :ProductMedia,        "magentor/product_media"
+  autoload :Product,             "magentor/product"
+  autoload :ProductStock,        "magentor/product_stock"
+  autoload :ProductTierPrice,    "magentor/product_tier_price"
+  autoload :ProductType,         "magentor/product_type"
+  autoload :Region,              "magentor/region"
+  autoload :Shipment,            "magentor/shipment"
 end

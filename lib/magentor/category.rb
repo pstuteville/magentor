@@ -19,11 +19,8 @@ module Magento
       # int $parentId - ID of parent category
       # array $categoryData - category data ( array(’attribute_code’⇒‘attribute_value’ )
       # mixed $storeView - store view ID or code (optional)
-      def create(attributes)
-        id = commit("create", attributes)
-        record = new(attributes)
-        record.id = id
-        record
+      def create(*args)
+        commit("create", *args)
       end
 
       # catalog_category.info

@@ -35,6 +35,7 @@ module Magento
       # array productData - array of attributes values
       def create(*args)
         id = commit("create", *args)
+        return id if id.is_a?(Magento::ApiError)
         record = info(id)
         record
       end
