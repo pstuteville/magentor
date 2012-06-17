@@ -102,6 +102,23 @@ module Magento
       def all
         list
       end
+      
+      def upsert(attributes = {})
+        clean_attributes = {}
+        # change all keys to symbols
+        attributes.each { |key, value| clean_attributes[key.to_sym] = value }
+        
+        customer = list(:email => clean_attributes[:email]).first
+        
+        if customer
+          # update if there are attributes other than an email address
+          update(customer.id, clean_attributes) if clean_attributes.size > 1
+          info(customer.id)
+        else
+          create(clean_attributes)
+        end
+      end
+      
     end
     
     def addresses
@@ -121,5 +138,6 @@ module Magento
       attrs.each_pair { |k, v| @attributes[k] = v }
       self.class.update(self.id, attrs)
     end
+    
   end
 end
