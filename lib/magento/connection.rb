@@ -58,7 +58,7 @@ module Magento
         retry_on_connection_error do
           ret = client.call_async("multiCall", session, [*calls])
           ret.each do |e|
-            if e["isFault"] then
+            if e.class == Hash and e["isFault"] then
               logger.debug "exception: #{e["faultCode"]} -> #{e["faultMessage"]}"
             end
           end
@@ -88,7 +88,10 @@ module Magento
           yield
         rescue EOFError
           attempts += 1
-          retry if attempts < 2
+          retry if attempts < 3
+        rescue RuntimeError
+          attempts += 1
+          retry if attempts < 3
         end
       end
   end
