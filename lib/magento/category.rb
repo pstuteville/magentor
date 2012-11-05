@@ -11,16 +11,16 @@ module Magento
     class << self
       # catalog_category.create
       # Create new category and return its id.
-      # 
+      #
       # Return: int
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $parentId - ID of parent category
       # array $categoryData - category data ( array(’attribute_code’⇒‘attribute_value’ )
       # mixed $storeView - store view ID or code (optional)
-      def create(attributes)
-        id = commit("create", attributes)
+      def create(parent_id, attributes)
+        id = commit("create", parent_id, attributes)
         record = new(attributes)
         record.id = id
         record
@@ -28,11 +28,11 @@ module Magento
 
       # catalog_category.info
       # Retrieve category data
-      # 
+      #
       # Return: array
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       # mixed $storeView - store view id or code (optional)
       # array $attributes - return only specified attributes (optional)
@@ -42,11 +42,11 @@ module Magento
 
       # catalog_category.update
       # Update category
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - ID of category for updating
       # array $categoryData - category data ( array(’attribute_code’⇒‘attribute_value’ )
       # mixed storeView - store view ID or code (optional)
@@ -56,11 +56,11 @@ module Magento
 
       # catalog_category.delete
       # Delete category
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       def delete(*args)
         commit("delete", *args)
@@ -68,11 +68,11 @@ module Magento
 
       # catalog_category.currentStore
       # Set/Get current store view
-      # 
+      #
       # Return: int
-      # 
+      #
       # Arguments:
-      # 
+      #
       # mixed storeView - Store view ID or code.
       def current_store(*args)
         commit("currentStore", *args)
@@ -80,11 +80,11 @@ module Magento
 
       # catalog_category.tree
       # Retrieve hierarchical tree of categories.
-      # 
+      #
       # Return: array
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int parentId - parent category id (optional)
       # mixed storeView - store view (optional)
       def tree(*args)
@@ -93,11 +93,11 @@ module Magento
 
       # catalog_category.level
       # Retrieve one level of categories by website/store view/parent category
-      # 
+      #
       # Return: array
-      # 
+      #
       # Arguments:
-      # 
+      #
       # mixed website - website code or Id (optional)
       # mixed storeView - store view code or Id (optional)
       # mixed parentCategory - parent category Id (optional)
@@ -107,17 +107,17 @@ module Magento
 
       # catalog_category.move
       # Move category in tree
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID for moving
       # int $parentId - new category parent
       # int $afterId - category ID after what position it will be moved (optional)
-      # 
-      # NOTE Please make sure that you are not moving category to any of its own children. 
-      # There are no extra checks to prevent doing it through webservices API, and you won’t 
+      #
+      # NOTE Please make sure that you are not moving category to any of its own children.
+      # There are no extra checks to prevent doing it through webservices API, and you won’t
       # be able to fix this from admin interface then
       def move(*args)
         commit("move", *args)
@@ -125,11 +125,11 @@ module Magento
 
       # catalog_category.assignedProducts
       # Retrieve list of assigned products
-      # 
+      #
       # Return: array
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       # mixed $store - store ID or code
       def assigned_products(*args)
@@ -138,11 +138,11 @@ module Magento
 
       # catalog_category.assignProduct
       # Assign product to category
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       # mixed $product - product ID or sku
       # int $position - position of product in category (optional)
@@ -152,11 +152,11 @@ module Magento
 
       # catalog_category.updateProduct
       # Update assigned product
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       # mixed $product - product ID or sku
       # int $position - position of product in category (optional)
@@ -166,36 +166,36 @@ module Magento
 
       # catalog_category.removeProduct
       # Remove product assignment from category
-      # 
+      #
       # Return: boolean
-      # 
+      #
       # Arguments:
-      # 
+      #
       # int $categoryId - category ID
       # mixed $product - product ID or sku
       def remove_product(*args)
         commit("removeProduct", *args)
       end
-      
+
       def find_by_id(id)
         info(id)
       end
     end
-    
+
     def delete
       self.class.delete(self.id)
     end
-    
+
     def update_attribute(name, value)
       @attributes[name] = value
       self.class.update(self.id, Hash[*[name.to_sym, value]])
     end
-    
+
     def update_attributes(attrs)
       attrs.each_pair { |k, v| @attributes[k] = v }
       self.class.update(self.id, attrs)
     end
-    
+
     def assigned_products(*args)
       self.class.assigned_products(self.id, *args)
     end
