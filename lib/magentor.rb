@@ -3,7 +3,7 @@
 # Author::    Preston Stuteville  (mailto:preston.stuteville@gmail.com)
 # License::   MIT
 #
-# Inspiration from the Magento plugin from Tim Matheson (http://github.com/timmatheson/Magento) 
+# Inspiration from the Magento plugin from Tim Matheson (http://github.com/timmatheson/Magento)
 
 require "active_support/inflector"
 require "logger"
@@ -31,7 +31,7 @@ module Magento
   autoload :CustomerGroup,       "magentor/customer_group"
   autoload :Customer,            "magentor/customer"
   autoload :Inventory,           "magentor/inventory"
-  autoload :Invoice,             "magentor/invoice"
+  autoload :OrderInvoice,        "magentor/order_invoice"
   autoload :OrderItem,           "magentor/order_item"
   autoload :Order,               "magentor/order"
   autoload :ProductAttribute,    "magentor/product_attribute"
